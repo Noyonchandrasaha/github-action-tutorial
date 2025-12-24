@@ -1,0 +1,19 @@
+name: Configaration Workflow variable
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+env:
+  CLOUDE: google-cloude
+
+jobs:
+  another_greeting_job:
+    runs-on: ubuntu-latest
+    env: 
+      GREATING: Hello, Mr/ms. 
+    steps:
+      - name: "Give the Greating first."
+        run: echo "$GREATING $FIRST_NAME is using $CLOUDE with projects ${{vars.PROJECT_ID}}"
+        env:
+          FIRST_NAME: Noyon
