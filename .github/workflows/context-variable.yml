@@ -1,0 +1,22 @@
+name: Testing workflow with context variable
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+env:
+  CLOUDE: google-cloude
+jobs:
+  greeting_job_with_metadata:
+    runs-on: ubuntu-latest
+    env:
+      GREETING_JOB: Hello MR/MS. 
+    steps:
+      - name: "Give greeting"
+        run: echo "$GREETING_JOB $FIRST_NAME is using $CLOUDE with project id ${{vars.PROJECT_ID}}"
+        env:
+          FIRST_NAME: Noyon
+      - name: "Print repository name, workflow name and triggered by"
+        run: |
+          echo "Repository Name = ${{ github.repository }}"
+          echo "Workflow Name = ${{ github.workflow }}"
+          echo "Triggered by = ${{github.triggering_actor}}"
