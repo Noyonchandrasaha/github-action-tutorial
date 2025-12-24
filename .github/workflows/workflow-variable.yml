@@ -9,11 +9,11 @@ env:
 
 jobs:
   greeting_job:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     env: 
       greating: hello
     steps:
-      -name: "Say hello Noyon. It's  Wednesday"
-      run: echo "$greating $first_name is using $cloud"
-      env:
-        first_name: Noyon
+      - name: "Say hello Noyon. It's  Wednesday"
+        run: echo "$greating $first_name is using $cloud"
+        env:
+          first_name: Noyon
